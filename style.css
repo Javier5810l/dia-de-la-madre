@@ -1,0 +1,708 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primario: #fff;
+    --fondo: #ffebf2; 
+    --fondo-sobre: #ffe3ed; 
+    --solapa-sobre: #ffccd5; 
+    --cuerpo-sobre: #ffc1d1; 
+    --sombra: rgba(0, 0, 0, 0.2);
+    --texto: #ghostwhite; 
+    --corazon: #ff477e; 
+}
+
+body {
+    background-image: url(Familia.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: "Marck Script", serif; 
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 50px;
+    color: ghostwhite;
+}
+
+section {
+    margin: 45px;
+}
+
+.hijo {
+    font-family: "Marck Script", serif; 
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: ghostwhite;
+}
+
+/* Parte Alonso */
+
+.contenedorAl {
+    width: 400px;
+}
+
+.envoltura-sobreAl {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+}
+
+.sobreAl {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobreAl::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.solapa-derechaAl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierdaAl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cartaAl {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.contenidoAl {
+    font-family: "Gill Sans", Calibri, sans-serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazonAl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazonAl::before,
+.corazonAl::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+}
+
+.corazonAl:before {
+    top: -15px;
+}
+
+.corazonAl:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abiertoAl .sobreAl::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abiertoAl .corazonAl {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.cartaAl.mostrar-cartaAl {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaAl.cerrando-cartaAl {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaAl.abiertaAl {
+    z-index: 10000;
+}
+
+.envoltura-sobreAl.desactivar-sobreAl .sobreAl::before {
+    pointer-events: none;
+}
+
+/*Vista celular*/
+
+@media screen and (max-width:400px) {
+    .contenedorAl {
+        width: 300px;
+    }
+
+    .sobreAl {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobreAl::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+}
+
+/* Parta Andrea */
+
+.contenedorAn {
+    width: 400px;
+}
+
+.envoltura-sobreAn {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+}
+
+.sobreAn {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobreAn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.solapa-derechaAn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierdaAn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cartaAn {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.contenidoAn {
+    font-family: "Gill Sans", Calibri, sans-serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazonAn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazonAn::before,
+.corazonAn::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+}
+
+.corazonAn:before {
+    top: -15px;
+}
+
+.corazonAn:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abiertoAn .sobreAn::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abiertoAn .corazonAn {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.cartaAn.mostrar-cartaAn {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaAn.cerrando-cartaAn {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaAn.abiertaAn {
+    z-index: 10000;
+}
+
+.envoltura-sobreAn.desactivar-sobreAn .sobreAn::before {
+    pointer-events: none;
+}
+
+/*Vista celular*/
+
+@media screen and (max-width:400px) {
+    .contenedorAn {
+        width: 300px;
+    }
+
+    .sobreAn {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobreAn::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+}
+
+/* Parta Jair */
+
+.contenedorJa {
+    width: 400px;
+}
+
+.envoltura-sobreJa {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+}
+
+.sobreJa {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobreJa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.solapa-derechaJa {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierdaJa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cartaJa {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.contenidoJa {
+    font-family: "Gill Sans", Calibri, sans-serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazonJa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazonJa::before,
+.corazonJa::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+}
+
+.corazonJa:before {
+    top: -15px;
+}
+
+.corazonJa:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abiertoJa .sobreJa::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abiertoJa .corazonJa {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.cartaJa.mostrar-cartaJa {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaJa.cerrando-cartaJa {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaJa.abiertaJa {
+    z-index: 10000;
+}
+
+.envoltura-sobreJa.desactivar-sobreJa .sobreJa::before {
+    pointer-events: none;
+}
+
+/*Vista celular*/
+
+@media screen and (max-width:400px) {
+    .contenedorJa {
+        width: 300px;
+    }
+
+    .sobreJa {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobreJa::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+}
+
+/* Parta Mafer */
+
+.contenedorMa {
+    width: 400px;
+}
+
+.envoltura-sobreMa {
+    position: relative;
+    background-color: var(--fondo-sobre);
+    box-shadow: 0 0 40px var(--sombra);
+    border-radius: 15px;
+}
+
+.sobreMa {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.sobreMa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--solapa-sobre);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.solapa-derechaMa {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.solapa-izquierdaMa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    background-color: var(--cuerpo-sobre);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cartaMa {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primario);
+    text-align: center;
+    box-shadow: 0 0 5px var(--sombra);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.contenidoMa {
+    font-family: "Gill Sans", Calibri, sans-serif;
+    color: var(--texto);
+    text-align: left;
+    font-size: 12px;
+    border: 3px dotted var(--texto);
+    padding: 10px;
+    height: 100%;
+    line-height: 14px;
+    cursor: pointer;
+    overflow-Y: scroll;
+}
+
+.corazonMa {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    transform: translate(-50%,0) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.corazonMa::before,
+.corazonMa::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--corazon);
+    border-radius: 100%;
+}
+
+.corazonMa:before {
+    top: -15px;
+}
+
+.corazonMa:after {
+    right: 15px;
+}
+
+/*Agregar clases dinamicos*/
+.abiertoMa .sobreMa::before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.abiertoMa .corazonMa {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+
+.cartaMa.mostrar-cartaMa {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaMa.cerrando-cartaMa {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.cartaMa.abiertaMa {
+    z-index: 10000;
+}
+
+.envoltura-sobreMa.desactivar-sobreMa .sobreMa::before {
+    pointer-events: none;
+}
+
+/*Vista celular*/
+
+@media screen and (max-width:400px) {
+    .contenedorMa {
+        width: 300px;
+    }
+
+    .sobreMa {
+        width: 300px;
+        height: 250px;
+    }
+
+    .sobreMa::before {
+        border-top:150px solid var(--solapa-sobre) ;
+        border-right: 150px solid transparent;
+        border-left: 150px solid transparent;
+    }
+}
